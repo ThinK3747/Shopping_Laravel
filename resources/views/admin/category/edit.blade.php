@@ -15,6 +15,10 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-12">
+                        <a href="{{ route('categories.index') }}" class="btn btn-success float-right m-2">Back</a>
+
+                    </div>
                     <div class="col-md-6">
                         <form method="post" action="{{ route('categories.update',['id' => $category->id]) }}"  >
                         @csrf <!--  {{ csrf_field() }} -->

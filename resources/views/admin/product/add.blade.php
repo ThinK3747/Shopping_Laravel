@@ -15,6 +15,21 @@
         <div class="content">
             <div class="container-fluid">
                 <div class="row">
+                    <div class="col-md-12">
+                        @if ($message = Session::get('error'))
+
+                        <div class="alert alert-danger alert-block">
+
+                            <button type="button" class="close" data-dismiss="alert">×</button>
+
+                            <strong>{{ $message }}</strong>
+
+                        </div>
+
+                    @endif
+                        <a href="{{ route('product.index') }}" class="btn btn-success float-right m-2">Back</a>
+
+                    </div>
                     <div class="col-md-6">
                         <form method="post" action="{{ route('product.store') }}" enctype="multipart/form-data" >
                         @csrf <!--  {{ csrf_field() }} -->
@@ -63,9 +78,7 @@
 
                             <select class="form-control" name="category_id">
                                 <option value="0" >Chọn danh mục</option>
-                                @foreach ($categories as $item)
-                                <option value="{{$item->id}}">{!! $item->name !!}</option>
-                                @endforeach
+                                {!! $htmlOption !!}
                               </select>
                         </div>
 
@@ -79,7 +92,7 @@
 
                         <div class="mb-3 form-group @error('name')text-danger @enderror">
                             <label class="form-label">Ảnh mô tả</label>
-                            <input type="file" class="form-control @error('name')is-invalid @enderror" name="photos" multiple placeholder="Nhập tên danh mục">
+                            <input type="file" class="form-control @error('name')is-invalid @enderror" name="photos[]" multiple placeholder="Nhập tên danh mục">
                             @error('name')
                             <span class="help-block">{{ $message }}</span>
                             @enderror

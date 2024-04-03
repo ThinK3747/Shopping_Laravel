@@ -12,7 +12,7 @@
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-                <div class="row card">
+                <div class="row">
                     <div class="col-md-12">
                         <a href="{{ route('product.create') }}" class="btn btn-success float-right m-2">Add</a>
 
@@ -56,8 +56,8 @@
                                     </td>
                                     <td>{{ $item->created_at}}</td>
                                     <td>
-                                        <a href="{{ route('product.edit',$item) }}" class="btn btn-default">Edit</a>
-                                        <a href="#" class="btn btn-danger">Delete</a>
+                                        <a href="#" class="btn btn-default">Khôi phục</a>
+                                        <a href="#" class="btn btn-danger">Xoá luôn</a>
                                     </td>
                                 </tr>
                                 @empty
@@ -73,9 +73,7 @@
                     <div class="col-md-12 mb-2">
                         {{   $products->links() }}
                     </div>
-                    <div class="col-md-12 mb-5">
-                        <a href="#" class="btn btn-info float-left m-2"><i class="fa fa-trash"></i>Thùng rác</a>
-                    </div>
+
 
 
 
